@@ -18,7 +18,7 @@ basic.forever(function () {
         mining = 0
         basic.pause(200)
     }
-    if (input.logoIsPressed()) {
+    if (input.logoIsPressed() && shop == 0) {
         basic.showNumber(ore)
         basic.pause(500)
         basic.clearScreen()
@@ -89,11 +89,25 @@ basic.forever(function () {
         basic.pause(100)
         ore += cost_auto_mine * -1
         cost_auto_mine += 50
-    } else if (shop == 4 && input.logoIsPressed() && ore >= cost_ore_numb_up) {
+    } else if (false) {
     	
     }
 })
 basic.forever(function () {
     ore += auto_mine
     basic.pause(1000)
+})
+basic.forever(function () {
+    if (shop == 1 && input.logoIsPressed() && ore < cost_ore_numb_up) {
+        basic.showString("unable to purchase this item costs:" + cost_ore_numb_up)
+        basic.pause(100)
+    } else if (shop == 2 && input.logoIsPressed() && ore < cost_luck_up && 1 < chance) {
+        basic.showString("unable to purchase this item costs:" + cost_luck_up)
+        basic.pause(100)
+    } else if (shop == 3 && input.logoIsPressed() && ore < cost_auto_mine) {
+        basic.showString("unable to purchase this item costs:" + cost_auto_mine)
+        basic.pause(100)
+    } else if (false) {
+    	
+    }
 })
